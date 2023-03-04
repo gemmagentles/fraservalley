@@ -1,0 +1,96 @@
+.cards-with-captions {
+    &__cards-wrapper {
+        max-width: 300px;
+        margin: 0 auto;
+        padding: 10px 40px 80px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        @include breakpoint(mobile) {
+            max-width: $inner-site-width;
+            display: grid;
+            grid-template-columns: auto auto;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        @include breakpoint(tablet) {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap: 60px 40px;
+            justify-items: center;
+            padding: 80px 40px;
+            text-align: left;
+        }
+
+        @include breakpoint(smalldesktop) {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-gap: 60px 40px;
+            justify-items: center;
+            padding: 140px 40px 120px;
+        }
+
+        @include breakpoint(xlargedesktop) {
+            padding: 140px 58px 120px;
+        }
+    }
+
+    &__card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: stretch;
+
+        @include breakpoint(smalldesktop) {
+            max-width: 320px;
+        }
+    }
+
+    &__image-wrapper {
+        position: relative;
+    }
+
+    &__image {
+        width: 220px;
+        height: 200px;
+        display: block;
+        margin-top: 50px;
+        object-fit: cover;
+
+        @include breakpoint(tablet) {
+            margin-top: 0;
+        }
+    }
+
+    &__text-wrapper {
+        background: $secondary-color;
+        padding: 0px 20px 40px 20px;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: space-between;
+        max-width: 220px;
+        min-height: 158px;
+    }
+
+    &__title {
+        padding: 30px 0 15px;
+        font-size: em(20);
+        line-height: 28px;
+        letter-spacing: 1px;    
+        color: white;
+    }
+
+    &__subtitle {
+        text-transform: uppercase;
+        font-family: $secondary-font-family;
+        font-size: em(14);
+        letter-spacing: 2.1px;
+        color: white;
+    }
+}

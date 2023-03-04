@@ -1,0 +1,175 @@
+.highlight-slider {
+  &__container {
+      position: relative;
+  }
+
+  &__caption {
+      max-width: 900px;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 40px;
+
+      @include breakpoint(smalldesktop) {
+          padding: 0;
+      }
+
+      &::before {
+          content: "";
+          position: absolute;
+          height: 16px;
+          border-bottom: 16px solid $secondary-color;
+          width: 100%;
+          top: -30px;
+          left: 0;
+          max-width: 900px;
+
+          @include breakpoint(smalldesktop) {
+              top: -58px;
+          }
+      }
+  }
+
+  &__heading {
+      margin-top: 30px;
+      padding: 0 0 20px;
+      text-align: center;
+      position: relative;
+
+      @include breakpoint(smalldesktop) {
+        padding: 30px 0 20px;
+      }
+      
+      &--year {
+        color: white;
+        background: $secondary-color;
+        padding: 5px 20px;
+        position: absolute;
+        top: -102px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        @include breakpoint(smalldesktop) {
+          top: -68px;
+        }
+      }
+  }
+
+  &__paragraph {
+    text-align: center;
+    color: $secondary-color;
+    font-size: 20px;
+  }
+
+  &__image {
+      width: 100%;
+      height: calc(100vh - 250px);
+      object-fit: cover;
+  }
+}
+
+.highlight-slider__wrapper {
+  position: relative;
+  margin: 100px 0;
+
+
+      @include breakpoint(desktop) {
+        margin: 100px 0 200px;
+      }
+
+  [data-action='start'],
+  [data-action='stop'] {
+      position: absolute;
+      right: 40px;
+      bottom: 60px;
+      z-index: 2;
+      background: transparent;
+      border: none;
+      background-repeat: no-repeat;
+      color: transparent;
+      max-width: 30px;
+      max-height: 24px;
+      width: 100%;
+      height: 100%;
+      background-size: contain;
+  }
+
+  [data-action='start'],
+  [data-action='stop'],
+  .tns-nav {
+      display: none;
+      visibility: hidden;
+  }
+
+  .tns-controls {
+      position: absolute;
+      display: flex;
+      justify-content: space-between;
+      outline: none;
+      width: 100%;
+      top: auto;
+      bottom: 0;
+      z-index: 2;
+
+      // @include breakpoint(tablet) {
+      //     top: 200px;
+      // }
+
+      // @include breakpoint(desktop) {
+      //     top: 300px;
+      // }
+
+      // @include breakpoint(largedesktop) {
+      //     top: 400px;
+      // }
+
+      // @include breakpoint(xlargedesktop) {
+      //     top: 450px;
+      // }
+  }
+
+  [data-controls='prev'],
+  [data-controls='next'] {
+      background: transparent;
+      height: 34px;
+      width: 34px;
+      border: none;
+      background-repeat: no-repeat;
+      color: transparent;
+  }
+
+  [data-controls='prev'] {
+      background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' %3F%3E%3Csvg id='Icons' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23094D8B;%7D%3C/style%3E%3C/defs%3E%3Cpath class='cls-1' d='M12,24A12,12,0,1,0,0,12,12.013,12.013,0,0,0,12,24ZM12,2A10,10,0,1,1,2,12,10.011,10.011,0,0,1,12,2Z'/%3E%3Cpath class='cls-1' d='M6,13h9.586l-2.293,2.293a1,1,0,1,0,1.414,1.414l4-4a1,1,0,0,0,0-1.414l-4-4a1,1,0,1,0-1.414,1.414L15.586,11H6a1,1,0,0,0,0,2Z'/%3E%3C/svg%3E");
+      margin-left: 20px;
+      transform: rotate(180deg);
+
+      @include breakpoint(tablet) {
+          margin-left: 60px;
+      }
+
+      @include breakpoint(desktop) {
+          margin-left: 130px;
+      }
+
+      @include breakpoint(xlargedesktop) {
+          margin-left: 230px;
+      }
+  }
+
+  [data-controls='next'] {
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' %3F%3E%3Csvg id='Icons' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23094D8B;%7D%3C/style%3E%3C/defs%3E%3Cpath class='cls-1' d='M12,24A12,12,0,1,0,0,12,12.013,12.013,0,0,0,12,24ZM12,2A10,10,0,1,1,2,12,10.011,10.011,0,0,1,12,2Z'/%3E%3Cpath class='cls-1' d='M6,13h9.586l-2.293,2.293a1,1,0,1,0,1.414,1.414l4-4a1,1,0,0,0,0-1.414l-4-4a1,1,0,1,0-1.414,1.414L15.586,11H6a1,1,0,0,0,0,2Z'/%3E%3C/svg%3E");
+      margin-right: 20px;
+
+      @include breakpoint(tablet) {
+          margin-right: 60px;
+      }
+
+      @include breakpoint(desktop) {
+          margin-right: 130px;
+      }
+
+      @include breakpoint(xlargedesktop) {
+          margin-right: 230px;
+      }
+  }
+}

@@ -1,0 +1,90 @@
+.intro-panel {
+    &__wrapper {
+        background: $primary-color;
+        overflow: hidden;
+
+        &::before {
+            content: '';
+            width: 100%;
+            height: 227px;
+            background-color: $primary-color;
+            position: absolute;
+            top: -227px;
+            right: 0;
+        }
+
+        &::after {
+            content: "";
+            width: 100%;
+            height: 306px;
+            background-color: $primary-color;
+            position: absolute;
+            top: -306px;
+            left: 0;
+        }
+        
+        @include breakpoint(smalldesktop) {
+            &::before {
+                background-color: transparent;
+                content: "";
+                width: 0px;
+                height: 0px;
+                border-style: solid;
+                border-color: $primary-color;
+                transform: rotate(0deg);
+                border-color: transparent transparent $primary-color transparent;
+                border-width: 0 0 227px 950px;
+            }
+
+            &::after {
+                background-color: transparent;
+                content: "";
+                width: 0px;
+                height: 0px;
+                border-style: solid;
+                border-color: $primary-color;
+                transform: rotate(180deg);
+                border-color: $primary-color transparent transparent transparent;
+                border-width: 215px 0px 91px 950px;
+            }
+        }
+    }
+
+    &__container {
+        text-align: center;
+        padding: 50px 40px;
+
+        @include breakpoint(smalldesktop) {
+            padding: 80px 40px;
+        }
+    }
+
+    &__heading {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding-bottom: 16px;
+        max-width: 860px;
+        margin: 0 auto;
+        color: $secondary-color;
+
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: -7px;
+            height: 2px;
+            background-color: $secondary-color;
+            width: 48px;
+            // fallback for when justify content center flex does not work, minus half the width since the 50% mark will start where the div starts rather than center of the div. 
+            right: calc(50% - 24px);
+            transform: translateY(-50%);
+        }
+    }
+
+    &__paragraph {
+        padding-top: 50px;
+        max-width: 704px;
+        margin: 0 auto;
+    }
+}

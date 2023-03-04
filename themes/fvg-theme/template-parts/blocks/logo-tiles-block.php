@@ -1,0 +1,30 @@
+<?php if ( have_rows( 'logo_tiles_block' ) ) : ?>
+<div class="logo-tiles__wrapper">
+<div class="logo-tiles__container">
+    <?php while ( have_rows( 'logo_tiles_block' ) ) : the_row(); ?>
+        <h2 class="logo-tiles__heading"><?php the_sub_field( 'heading' ); ?></h2>
+        <?php $paragraph = get_sub_field( 'paragraph' ); ?>
+        <?php if ( $paragraph ) { ?>
+            <div class="logo-tiles__paragraph"><?php the_sub_field( 'paragraph' ); ?></div>
+        <?php } ?>
+		<?php if ( have_rows( 'tile' ) ) : ?>
+        <div class="logo-tiles__grid">
+			<?php while ( have_rows( 'tile' ) ) : the_row(); ?>
+                <div class="logo-tiles__logo-wrapper">
+                    <?php $logo = get_sub_field( 'logo' ); ?>
+                    <?php $link = get_sub_field( 'logo_link' ); ?>
+                    <?php if ( $logo ) { ?>
+                        <?php if ( $link ) { ?><a href="<?php echo $link; ?>" target="_blank"><?php } ?>
+                            <img data-aos="fade-up" class="logo-tiles__logo" src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>" />
+                        <?php if ( $link ) { ?></a><?php } ?>
+                    <?php } ?>
+                </div>
+			<?php endwhile; ?>
+        </div>
+		<?php else : ?>
+			<?php // no rows found ?>
+		<?php endif; ?>
+    <?php endwhile; ?>
+</div>
+</div>
+<?php endif; ?>
